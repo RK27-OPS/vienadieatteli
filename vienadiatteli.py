@@ -21,8 +21,12 @@ def btnClick(btn, number):
         if ImageList[answers[0]] == ImageList[answers[1]]:
             for key in answer_dict:
                 key ["state"] = DISABLED
+                correctAnswer=+2
             if correctAnswer == 2:
                 messagebox.showinfo("Vienādie attēli", "Esi uzminējis!")
+                correctAnswer=0
+            if correctAnswer ==5:
+                messagebox.askquestion(" vienādie attēli,", "Tu uzvarēji", " Tu zaudēji")
         else:
             messagebox.showinfo("Vienādie attēli", "Neuzminēji!")
             for key in answer_dict:
@@ -34,11 +38,12 @@ def btnClick(btn, number):
 
 
 
+
 myImg1 = ImageTk.PhotoImage(Image.open("1.jpg"))
 myImg2 = ImageTk.PhotoImage(Image.open("2.jpg"))
 myImg3 = ImageTk.PhotoImage(Image.open("3.jpg"))
 myImg4 = ImageTk.PhotoImage(Image.open("4.jpg"))
-myImg5 = ImageTk.PhotoImage(Image.open(".jpg"))
+myImg5 = ImageTk.PhotoImage(Image.open("5.jpg"))
 #myImg6 = ImageTk.PhotoImage(Image.open("6.jpg"))
 bgImg = ImageTk.PhotoImage(Image.open("7.jpg"))
 
