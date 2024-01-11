@@ -4,15 +4,25 @@ import random
 from tkinter import messagebox
 gamewindow = Tk()
 gamewindow.title("Vienādie attēli")
+gamewindow.configure(bg="black")
+gamewindow.resizable(1,1)
 
 count = 0
 correctAnswer = 0
 answers = []
 answer_dict = {}
 
+myImg1 = ImageTk.PhotoImage(Image.open("1.jpg"))
+myImg2 = ImageTk.PhotoImage(Image.open("2.jpg"))
+myImg3 = ImageTk.PhotoImage(Image.open("3.jpg"))
+myImg4 = ImageTk.PhotoImage(Image.open("4.jpg"))
+myImg5 = ImageTk.PhotoImage(Image.open("5.jpg"))
+#myImg6 = ImageTk.PhotoImage(Image.open("6.jpg"))
+bgImg = ImageTk.PhotoImage(Image.open("7.jpg"))
+
 def btnClick(btn, number):
     global count, correctAnswers, answers, answer_dict
-    if btn["image"] == "pyImage6" and count < 2:
+    if btn["image"] == "pyImage7" and count < 2:
         btn["image"] = ImageList[number]
         count +- 1
         answers.append(number)
@@ -30,22 +40,13 @@ def btnClick(btn, number):
         else:
             messagebox.showinfo("Vienādie attēli", "Neuzminēji!")
             for key in answer_dict:
-                key["image"] = "pyImage6"
+                key["image"] = "pyImage7"
     count = 0
     answers = []
     answer_dict = {}
     return 0
 
 
-
-
-myImg1 = ImageTk.PhotoImage(Image.open("1.jpg"))
-myImg2 = ImageTk.PhotoImage(Image.open("2.jpg"))
-myImg3 = ImageTk.PhotoImage(Image.open("3.jpg"))
-myImg4 = ImageTk.PhotoImage(Image.open("4.jpg"))
-myImg5 = ImageTk.PhotoImage(Image.open("5.jpg"))
-#myImg6 = ImageTk.PhotoImage(Image.open("6.jpg"))
-bgImg = ImageTk.PhotoImage(Image.open("7.jpg"))
 
 ImageList = [myImg1, myImg1, myImg2, myImg2, myImg3, myImg3, myImg4, myImg4, myImg5, myImg5]
 random.shuffle(ImageList)
@@ -71,6 +72,16 @@ btn6.grid(row = 1, column = 1)
 btn7.grid(row = 1, column = 2)
 btn8.grid(row = 1, column = 3)
 btn9.grid(row = 1, column = 4)
+
+galvenaIzvele=Menu(gamewindow)
+gamewindow.confing(menu=galvenaIzvele)
+
+opcijas=Menu(galvenaIzvele,tearoff=False)
+galvenaIzvele.add_command(label="Opcijas",menu=opcijas)
+
+#opciajs.add_command(label="Jauna spēle",command=reset)
+#opciajs.add_command(label="Iziet",command=gamewindow.quit)
+#galvenaIzvele.add_command(label="par programmu",command=infologs)
 
 
 
