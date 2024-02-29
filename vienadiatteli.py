@@ -117,9 +117,9 @@ def infoLogs():# info logs
        
     return 0
 
-#def btnClick(btn, number):# pogu funkcija lai klikšķinātu
+def btnClick(btn, number):# pogu funkcija lai klikšķinātu
     global count, correctAnswer, answers, answer_dict
-    if btn["image"] == "pyImage7" and count < 2:
+    if btn["image"] == "pyimage7" and count < 2:
         btn["image"] = ImageList[number]
         count += 1
         answers.append(number)
@@ -132,44 +132,17 @@ def infoLogs():# info logs
             if correctAnswer == 2:
                 messagebox.showinfo("Vienādie attēli", "Esi uzminējis!")
                 correctAnswer=0
-            if correctAnswer ==5:
+            if correctAnswer ==6:
                 messagebox.askquestion(" vienādie attēli,", "Tu uzvarēji", " Tu zaudēji")
         else:
             messagebox.showinfo("Vienādie attēli", "Neuzminēji!")
             for key in answer_dict:
-                key["image"] = "pyImage7"
+                key["image"] = "pyimage7"
     count = 0
     answers = []
     answer_dict = {}
     return 0
 
-def btnClick(btn,number):
-    global count, correctAnswers, answers, answer_dict, answerCount
-    if btn["image"]=="pyimage7" and count<2:
-        btn["image"]=ImageList[number]
-        count+=1
-        answers.append(number)
-        answer_dict[btn]=ImageList[number]
-    if len(answers)==2:
-        if ImageList[answers[0]]==ImageList[answers[1]]:
-            for key in answer_dict:
-                key["state"]=DISABLED
-            correctAnswers=+2
-            if correctAnswers==2:
-                messagebox.showinfo("Vienādi attēli", "Esi uzminējis")
-                correctAnswers=0
-                answerCount+=1
-        else:
-            messagebox.showinfo("Vienādi attēli","Neuzminēji")
-            for key in answer_dict:
-                key["image"]="pyimage7"
-        count=0
-        answers=[]
-        answer_dict={}
-    if answerCount==6:
-        messagebox.showinfo("Vienādi attēli","Tu uzvareji")
-        reset()
-    return 0
 
 
 galvenaIzvele=Menu(gamewindow)
@@ -179,8 +152,8 @@ opcijas=Menu(galvenaIzvele,tearoff=False)
 galvenaIzvele.add_cascade(label="Opcijas",menu=opcijas)
 galvenaIzvele.add_command(label="par programmu",command=infoLogs)
 
-#opciajs.add_command(label="Jauna spēle",command=reset)
-#opciajs.add_command(label="Iziet",command=gamewindow.quit)
+opcijas.add_command(label="Jauna spēle",command=reset)
+opcijas.add_command(label="Iziet",command=gamewindow.quit)
 
 
 gamewindow.mainloop()
